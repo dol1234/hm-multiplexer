@@ -35,7 +35,7 @@ def main():
         
     thingsix_forwarder = os.environ.get('THINGSIX_FORWARDER')
     if thingsix_forwarder:
-        cmd += ' --client %s :1680' % thingsix_forwarder
+        cmd += ' --client %s:1680' % thingsix_forwarder
 
     os.system(cmd)
 
