@@ -21,9 +21,12 @@ def read_ttn_config():
 
 
 def main():
-    bin = '/usr/local/bin/gwmp-mux'
-    cmd = '%s --client helium-miner:1680' % bin
-
+    cmd = '/usr/local/bin/gwmp-mux'
+    
+    use_helium_miner = os.environ.get('USE_HELIUM_MINER')
+    if use_helium_miner and use_helium_miner.lower() == 'true':
+        cmd += ' --client helium-miner:1680'
+        
     ttn_config = read_ttn_config()
     if ttn_config.get('ttn_enabled', False):
         ttn_cluster = ttn_config.get('ttn_cluster')
